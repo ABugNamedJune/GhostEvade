@@ -1,14 +1,14 @@
 	Ghost Evade
 	written by June Bush
-	June@JuneBush.com
+	June@JuneBush/com
 	v8/4 9/25/23
-	this is released under a CC BY 4.0 license.
-	You're free to do whatever you want with this software and share it with anyone, just please keep my name and email attached.
+	this is released under a CC BY 4/0 license
+	You're free to do whatever you want with this software and share it with anyone just please keep my name and email attached
 	Thx!
 
 set initial and static values
 //start POS0 return POS0
-//THIS IS WORKING DO NOT EVER FUCK WITH THESE VALUES
+//THIS IS WORKING DO NOT EVER MESS WITH THESE VALUES
 
 	########## ########## 	########## ##########
 
@@ -344,7 +344,7 @@ build layers in video memory
 	//as the pointer moves through this I could have used the subsequent memory position
 	//as a math operator to make this look cleaner but frankly I think that is uneccesary
 	//this may be inefficient and messy but it is far more readable and after writing seven
-	//fucking previous versions of this I will take readable over fancy
+	//previous versions of this I will take readable over fancy
 1	+>			
 2	++>
 3	+++>
@@ -728,8 +728,8 @@ build layers in video memory
 	<<<<<<<<<< <<<<<<<<<<
 	<<<<<<<<<< <<<<<<<<<<
 
-	<<<<<<<<<< <<<<<<<<<<		Holy shit that episode was nominated for an Emmy??????
-	<<<<<<<<<< <<<<<<<<<<		why?
+	<<<<<<<<<< <<<<<<<<<<		Holy cow that episode was nominated for an Emmy??????
+	<<<<<<<<<< <<<<<<<<<<
 	<<<<<<<<<< <<<<<<<<<<
 	<<<<<<<<<< <<<<<<<<<<
 	<<<<<<<<<< <<<<<<<<<<
@@ -769,7 +769,6 @@ build layers in video memory
 	>>>>>>>>>> >>>>>>>>>>
 	>>>>>>>>>> >>>>>>>>>>
 
-	//note these values are fucked redo them
 	row 1
 	+++			mov POS260 set 3
 	>+++			mov POS261 set 3
@@ -817,7 +816,7 @@ build layers in video memory
 	>>>+++			mov POS336 set 3
 	>>>+++			mov POS339 set 3
 	>+++			mov POS340 set 3
-	>>>+++			mov POS343 set 3 o shit its the halo guys
+	>>>+++			mov POS343 set 3 o woah its the halo guys
 	>>>>>>+++		mov POS349 set 3
 	>+++			mov POS350 set 3
 	>+++			mov POS351 set 3
@@ -995,7 +994,7 @@ set comparator values
 	sub duplicate ai y values
 	//start POS0 return POS0
 	// I know I know it's excessive as hell to redundantly move the pointer back and forth
-	//but I swear for the sake of writing usable brainfuck this is *necessary*
+	//but I swear for the sake of getting this to work it's necessary  In a future release I'll remove these
 	>>>>>>>>>> >>>>>>>>>>	mov POS45
 	>>>>>>>>>> >>>>>>>>>>
 	>>>>>
@@ -1299,7 +1298,6 @@ process layers
 collate maps
 //start POS0 return POS0
 //this merges all of the layers onto the player layer
-//this is gonna fucking suck
 //at least this has the benefit of doing some of the cleanup so we don't have to do it later
 
 	########## ##########	########## ##########
@@ -1327,7 +1325,7 @@ collate maps
 	>>>>>>>>>> >>>>>>>>>>
 	>>>>>>>>>> >>>>>>>>>	POS359
 
-	//god damn what is the best way to do this
+	//what is the best way to do this
 	//I think I can use a seeker? lets try it
 	// you know what? the carriage returns are set to the beginnings of the maps
 	//so lets do this in reverse
@@ -1353,7 +1351,7 @@ collate maps
 
 	<
 	+]-			end seeker
-				god damn that actually worked wtf
+				that actually worked woah
 	//pointer should be at POS259
 	<<<<<<<<<		mov POS250
 	<<<<<<<<<< <<<<<<<<<<	mov POS200
@@ -1379,6 +1377,9 @@ collate maps
 	//start POS0 return POS0
 	//this is going to be a little glitchy when going over walls
 	//but whatever it's brainfuck
+	//in a future release I think I can fix this by instead of adding the value of the enemy character to the memory position
+	//I can just set that memory position to zero and then increment it to the enemy AI ascii value
+	//but that might increase execution time
 	//it's fine
 	
 	>>>>>>>>>> >>>>>>>>>>	mov POS469
@@ -1487,9 +1488,7 @@ print map
 	>>>>>>>>>> >>>>>>>>>>
 	>>>>>>>>>> >>>>>>>>>>	POS150
 
-	//ughhhh fuck I forgot to reserve a new line characterFUCKFASfjdADJSAKFJ
-	//god damn
- how do I do this?
+	//ughhhh  I forgot to reserve a new line character in memoryFASfjdADJSAKFJ
 	//this is gonna be messy
 	.>.>.>.>.> .>.>.>.>.>	print first row
 	
@@ -1582,10 +1581,9 @@ print map
 	.			print new line
 	----------		clear the new line character because I'm a dummy
 
-	HOLY SHIT IT WORKS
-	IT ACTUALLY WORKS WHAT THE FUCK
-	I HAVE BEEN WORKING ON THIS FOR TWO FUCKING WEEKS AND IT FUCKING WORKS
-	HOLY FUCK
+	HOLY CANOLI IT WORKS
+	IT ACTUALLY WORKS!!
+	I HAVE BEEN WORKING ON THIS FOR TWO WEEKS AND IT WORKS
 
 	//return to zero
 	//I think the pointer is at POS250?
