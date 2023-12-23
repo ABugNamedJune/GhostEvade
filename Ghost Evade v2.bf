@@ -1,17 +1,26 @@
+### GHOST EVADE V2 ###
+Written by June Bush
+June@JuneBush(dot)com
+This is free software please credit me tho thx
+
+
+#Scooch everything forward for ease of use later in the program
+>>>
+
 ### BUILD PLAYFIELD MEMORY ###
 Each tile in the playfield consists of three bytes
 (0)  ABSOLUTE VALUE
 (1)  GRAPHICS MEMORY
 (2)  OBJECTS CONTAINED
 
-#Set a flag at memory cell 0 so we can find our way home later
+#Set a pointer at memory cell 0 so we can find our way home later
 #Set the size of the playfield (in this case 100)
 ->++++++++++[->++++++++++<]
 >
 #Set n minus 1 in each playfield tile reservation for the absolute value
 [[->+>>+<<<]>>>-]
 
-#Set ending flag for Map memory
+#Set ending pointer for Map memory
 >-
 
 
@@ -32,3 +41,15 @@ Each object is encoded into the Tile OBJECTS memory as a binary value
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
 <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +
+
+#Go to map memory start pointer
++[-<+]-
+
+
+### DECODE OBJECTS AND RENDER MAP ###
+This scrolls through the map and translates the object layer into graphics
+THIS MUST START AT THE MAP MEMORY START POINTER!
+
+#Print the title
+<<<
+++[->+++++++[->+++++<]<]>>+.+.+++++++.++++.+.<<++++[->++++++++<]>.<+++++[->++++++++<]>---.>++.<----.+++.+.
