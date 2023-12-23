@@ -1,128 +1,34 @@
-### BUILD DYNAMIC PLAYFIELD ###
-#numbers every third cell n plus 1 until reaching an arbitrary end point
+### BUILD PLAYFIELD MEMORY ###
+Each tile in the playfield consists of three bytes
+(0)  ABSOLUTE VALUE
+(1)  GRAPHICS MEMORY
+(2)  OBJECTS CONTAINED
 
-   #POINTER AT MAP MEMORY START
+#Set a flag at memory cell 0 so we can find our way home later
+#Set the size of the playfield (in this case 100)
+->++++++++++[->++++++++++<]
+>
+#Set n minus 1 in each playfield tile reservation for the absolute value
+[[->+>>+<<<]>>>-]
 
-#Set ending flag
->>
-
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>> 25
-
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>> 50
-
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>> 75
-
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>>
->>> >>> >>> >>> >>  100
-
-- The Flag!
-
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<< 75
-
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<< 50
-
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<< 25
-
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<<
-<<< <<< <<< <<< <<  0
-
-<<->>>
-
-#Set initial values
-+>>+<
-
-#Loop while seeking ending flag
-+[->
-
-#add n plus 1
-[->+>>+<<<]
->+>>+
-
-#check if flag is reached
-<+]-
-
-#clear flag and clear duplicate value set new end flag
-+>[->>+<<]>-
+#Set ending flag for Map memory
+>-
 
 
-### BUILD WALLS INTO MEMORY###
-#This is looking so much more fresh than the original version
-#Starts map memory END
-#Ends map memory START
+### POPULATE MAP WITH OBJECTS ###
+Each object is encoded into the Tile OBJECTS memory as a binary value
+001 WALLS
+010 GHOST
+100 PLAYER
+
+#Build the objects into the map
   <  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +
-     #       #       #       #       #       #       #       #       #       #
-<<<  +  <<<     <<<     <<<  +  <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                       #                                               #
-<<<  +  <<<     <<<     <<<  +  <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                       #                                               #
-<<<  +  <<<     <<<     <<<  +  <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                       #                                               #
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                                                                       #
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                                                                       #
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                                                                       #
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                                                                       #
 <<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
-     #                                                                       #
+<<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
+<<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
+<<<  +  <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<     <<<  +
 <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +  <<<  +
-     #       #       #       #       #       #       #       #       #       #
-+[-<+]-
-
-### DECODE MEMORY AND DRAW TO SCREEN ###
->>
-001 1 Wall
-010 2 Ghost
-100 4 Player
-
-#Decode Walls
-#Starts Map Memory START
-#subtracts 001 from all of objects
->+[->>->+]-
-
-
-   #POINTER IS AT MAP MEMORY END
-
-
-#For objects in array add 3 to graphics byte if encoding byte is 1
-
-<<<
-
-+[-
-
->>
-
-+]-
-
