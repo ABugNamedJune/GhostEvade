@@ -66,8 +66,10 @@
 [->+>>+<<<]
 >+>>+
 
+#check if flag is reached
 <+]-
 
-+>[-]
+#clear flag and clear duplicate value set new end flag
++>[-]>-<
 
 +[-<+]-
