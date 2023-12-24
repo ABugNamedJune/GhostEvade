@@ -1,0 +1,25 @@
+### This is a prototype of the binary decoding subroutine I am writing to interpret the map data ###
+
+#Set an intial value
+#(This will eventually be taken from the map contents memory)
++++++++
+
+#decode the first binary bit and slide the remainder back into the input
+[-
+>> +
+-[+<+>[-]] +
+<[->->+<<]
+<]
+
+#slide the remainder
+>>>[-<<<+>>>]<<<
+
+
+#decode the second bit
+[-
+>>> +
+-[+<<+>>[-]] +
+<<[->>->+<<<]
+<]
+
+#I think this is pretty straight forward, but catch me tomorrow when I am looking over this flabbergasted
