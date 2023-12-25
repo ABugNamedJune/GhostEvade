@@ -5,10 +5,17 @@
 +++++++
 
 #decode the first binary bit and slide the remainder back into the input
+#Decrement the value of the input byte
 [-
+#Move to the first binary bit and increment it
 >> +
+#Check the value of the first bit and if it is two then we set the carry flag clear the value of the first bit and then set it to one
+#Regardless of the true value of this cell it will always end on a value of one
 -[+<+>[-]] +
+#Evaluate the carry flag and if it is set we reset the flag clear the first bit and increment the second bit
 <[->->+<<]
+#After it is all said and done the first bit is correctly set and we have a remainder in the second bit that we have to evaluate in the exact same way
+#This is essentially a modulo operation and maybe it can be more efficient but I think this is pretty dang good
 <]
 
 #slide the remainder
@@ -22,4 +29,4 @@
 <<[->>->+<<<]
 <]
 
-#I think this is pretty straight forward, but catch me tomorrow when I am looking over this flabbergasted
+#I think this is pretty straight forward but catch me tomorrow when I am looking over this flabbergasted
