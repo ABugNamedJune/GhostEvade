@@ -36,10 +36,10 @@ Each object is encoded into the Tile OBJECTS memory as a binary value
 <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +
 
 #Go to map memory start pointer
-+[-<+]-
++[-<+]- >-<
 
 #Set game loop flag
-<<<<+>>>>
+<<<<+[>>>>
 
 ### DECODE OBJECTS AND RENDER MAP ###
 This scrolls through the map and translates the object layer into graphics
@@ -51,9 +51,6 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 
 #Set the counter flag
 <++++++++++[->++++++++++<]>-
-
-#Set a second flag this is somewhat redundant but makes my life easier this must be cleared at the end of this operation
->>-<<
 
 #while counter flag is greater than zero execute code
 [-
@@ -136,10 +133,6 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 <+[-<<+]-
 <<<]
 
-
-
-
-
-
-#Return to game loop flag
 <<]
+
+
