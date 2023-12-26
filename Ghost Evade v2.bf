@@ -1,11 +1,10 @@
 #Scooch everything forward for ease of use later in the program
->>>
+>>>>
 
 ### BUILD PLAYFIELD MEMORY ###
 Each tile in the playfield consists of three bytes
 (0)  ABSOLUTE VALUE
-(1)  GRAPHICS MEMORY
-(2)  OBJECTS CONTAINED
+(1)  VALUE CONTAINED
 
 #Set a pointer at memory cell 0 so we can find our way home later
 #Set the size of the playfield (in this case 100)
@@ -38,6 +37,9 @@ Each object is encoded into the Tile OBJECTS memory as a binary value
 
 #Go to map memory start pointer
 +[-<+]-
+
+#Set game loop flag
+<<<<+>>>>
 
 ### DECODE OBJECTS AND RENDER MAP ###
 This scrolls through the map and translates the object layer into graphics
@@ -123,4 +125,21 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 
 #return to counter flag
 <<<+[-<<+]-
+<<<+>]
+
+#Reset map indexes
+<[->>>>
++[-+>>+]-
++
++[-+>>+]-
+#seek back to the counter
+<+[-<<+]-
+<<<]
+
+
+
+
+
+
+#Return to game loop flag
 <<]
