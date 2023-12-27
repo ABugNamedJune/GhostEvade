@@ -1,8 +1,35 @@
+ ##########    ##      ##     ##########     ##########     ##########
+  ##########    ##      ##     ##########     ##########     ##########  
+   ##            ##      ##     ##      ##     ##                 ##
+   ##            ##      ##     ##      ##     ##                 ##
+  ##            ##      ##     ##      ##     ##                 ##
+ ##    ####    ##########     ##      ##     ##########         ##
+##    ####    ##########     ##      ##     ##########         ##
+##      ##    ##      ##     ##      ##             ##         ##
+
+
+##########    ##              ##      ####  ########        ##########
+##########    ##              ##    ### ##  ##########      ##########
+ ##            ##             ##   ###   ##  ##      ###     ##
+  ##            ##            ##  ###     ##  ##       ##     ##  
+   ##            ##          ##   ###      ##  ##       ##     ##
+   #######       ##        ##   #############  ##       ##     #######
+  #######       ##     ##    ###############  ##       ##     #######
+ ##            ##   ##    ###            ##  ##       ##     ##
+
+Written by June Bush
+June@JuneBush(dot)com
+feel free to share this code
+its totally open source or whatever
+Shoutout to my boy Richy M Stallsboy the free software king
+(Richard Stallman if you see this I deeply respect your work and I am sorry for calling you Richy M Stallsboy could you send me a fsf tshirt?)
+
+
 #Scooch everything forward for ease of use later in the program
 >>>>
 
-### BUILD PLAYFIELD MEMORY ###
-Each tile in the playfield consists of three bytes
+   ### BUILD PLAYFIELD MEMORY ###
+Each tile in the playfield consists of two bytes
 (0)  ABSOLUTE VALUE
 (1)  VALUE CONTAINED
 
@@ -17,23 +44,26 @@ Each tile in the playfield consists of three bytes
 >>>->-<
 
 
-### POPULATE MAP WITH OBJECTS ###
+
+   ### POPULATE MAP WITH OBJECTS ###
+
+   
 Each object is encoded into the Tile OBJECTS memory as a binary value
-100 WALLS
-010 GHOST
- PLAYER
+100 WALLS  01
+010 GHOST  02
+001 PLAYER 04
 
 #Build the objects into the map
- <  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +
-<<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +
+ <  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<     <<     <<     <<     <<     <<     <<     <<     <<  +++++++++
+<<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +  <<  +++++++++
 
 #Go to map memory start pointer
 +[-<+]- >-<
@@ -76,7 +106,11 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 +[->+]-
 >>>]
 
-### DECODE THE BINARY ###
+
+
+     ### BINARY DECODERIZERRRRRRRR ###
+
+
 #decode the first binary bit and slide the remainder back into the input
 #Decrement the value of the input byte
 <[-
@@ -102,6 +136,18 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 <<[->>->+<<<]
 <]
 
+#slide the remainder
+>>>>[-<<<<+>>>>]<<<<
+
+#decode the third bit
+[-
+>>>> +
+-[+<<<+>>>[-]] +
+<<<[->>>->+<<<<]
+<]
+#I am starting to realize that encoding this in binary is maybe redundant
+#Its nice for the sake of object collisions but I am about to encode a new line character (10 in ascii) within eight bytes
+
 #I think this is pretty straight forward but catch me tomorrow when I am looking over this flabbergasted
 
 #The input byte now becomes the temporary video memory register so lets crunch numbers to get the display graphix set for the active tile
@@ -120,19 +166,34 @@ THIS MUST START AT THE MAP MEMORY START POINTER!
 #print temporary video and clear memory
 <.[-]
 
+
+#check the new line flag
+>>>>>
+#set byte to a value of 10 (new line)
++++++++++
+#print a new line
+.
+[-]
+<<<<<
+
 #return to counter flag
 <<<+[-<<+]-
 <<<+>]
 
-#Reset map indexes
-<[->>>>
-+[-+>>+]-
-+
-+[-+>>+]-
-#seek back to the counter
-<+[-<<+]-
+#Reset Map Index
+<[->>>>>
++[-<+>>>+]-
+<<
++[-<<+]-
+
+#Return to counter
 <<<]
 
+
+
+
+
+
+
+#Return to game loop flag
 <<]
-
-
